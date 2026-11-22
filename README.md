@@ -1,54 +1,59 @@
-# Comprehensive Data Analytics Pipeline
+# Clinical Data Analytics Suite
 
-## Description
-End-to-end data processing workflow performing raw data extraction, cleaning transformations, statistical summary calculation, and automated report generation.
+## Overview
+The Clinical Data Analytics Suite provides statistical evaluation, exploratory data analysis, and operational reporting on hospital emergency department patient flows and wait times. Designed for clinical operations analysts, the suite surfaces triage bottlenecks, patient volume surges, and physician resource allocation dynamics.
 
-## Live Demo
-Access the live demonstration and portfolio showcase at: [https://sohail.devsil.com/projects.html](https://sohail.devsil.com/projects.html)
+## System Architecture
 
-## Tech Stack
-- Python 3.10+
-- Pandas
-- NumPy
-- Matplotlib
-- Seaborn
-
-## Getting Started
-
-### Prerequisites
-- Python 3.10 or higher
-- Git version control
-
-### Installation and Setup
-1. Clone the repository:
-```bash
-git clone https://github.com/sohailahmed-bsrh/project-05-data-analysis.git
-cd project-05-data-analysis
+```mermaid
+flowchart TD
+    A[Raw Clinical Records: ER Wait Time Dataset.csv] --> B[Data Cleaning & Missing Value Imputation]
+    B --> C[Feature Engineering & Triage Classification]
+    C --> D[Statistical Exploratory Data Analysis]
+    D --> E[Wait Time vs Acuity Correlation Analysis]
+    E --> F[Resource Utilization & Peak Hour Heatmaps]
+    F --> G[Operational Insights & Resource Allocation Recommendations]
 ```
 
-2. Configure environment and dependencies:
-```bash
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
-jupyter notebook notebooks/
+## Core Features
+- **Patient Flow Analysis**: Quantitative tracking of patient journey stages from triage intake to clinical consultation.
+- **Triage Acuity Stratification**: Evaluation of emergency severity levels against standardized waiting thresholds.
+- **Temporal Volume Decomposition**: Hourly, daily, and seasonal heatmaps isolating clinical surge intervals.
+- **Statistical Significance Testing**: Hypothesis testing evaluating wait duration differentials across clinical departments.
+
+## Repository Structure
 ```
-
-## Architecture and Project Structure
-The repository is structured according to modular engineering standards:
-
-```text
-project-05-data-analysis/
+clinical-data-analytics-suite/
+|-- archive/
+|   |-- ER Wait Time Data Overview.txt
+|   +-- ER Wait Time Dataset.csv
 |-- notebooks/
-|-- data/
-|-- src/
-|-- .gitignore
-|-- README.md
-`-- requirements.txt
+|   +-- ER.ipynb
+|-- requirements.txt
++-- README.md
 ```
 
-## Interface and Verification
-The system produces verifiable execution logs, data summaries, or interactive interfaces depending on the execution target. Validate operation by running the test suite or local entrypoint.
+## Technology Stack
+| Layer | Technologies |
+| :--- | :--- |
+| Core Language | Python 3.10+ |
+| Data Processing | Pandas, NumPy |
+| Visualization | Matplotlib, Seaborn, Plotly |
+| Statistical Computing | SciPy, Statsmodels |
+| Notebook Environment | JupyterLab |
 
-## Author
-Developed by Sohail Ahmed ([Portfolio](https://sohail.devsil.com) | [GitHub](https://github.com/sohailahmed-bsrh)).
+## Installation & Execution
+```bash
+# Clone the repository
+git clone https://github.com/sohailahmed-bsrh/clinical-data-analytics-suite.git
+cd clinical-data-analytics-suite
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Launch exploratory analysis notebook
+jupyter notebook notebooks/ER.ipynb
+```
+
+## License
+Distributed under the MIT License.
