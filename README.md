@@ -1,57 +1,91 @@
-# Clinical Data Analytics Suite
+# Clinical Data Analytics Suite - Healthcare Inpatient Operations
 
-## Overview
-The Clinical Data Analytics Suite provides statistical evaluation, exploratory data analysis, and operational reporting on hospital emergency department patient flows and wait times. Designed for clinical operations analysts, the suite surfaces triage bottlenecks, patient volume surges, and physician resource allocation dynamics.
+<p align="center">
+  <a href="https://sohail.devsil.com"><strong>Portfolio</strong></a> | 
+  <a href="https://github.com/sohailahmed-bsrh"><strong>GitHub Profile</strong></a> | 
+  <a href="https://github.com/sohailahmed-bsrh/clinical-data-analytics-suite"><strong>Source Repository</strong></a>
+</p>
 
-## System Architecture
+---
 
-```mermaid
-flowchart TD
-    A[Raw Clinical Records: ER Wait Time Dataset.csv] --> B[Data Cleaning & Missing Value Imputation]
-    B --> C[Feature Engineering & Triage Classification]
-    C --> D[Statistical Exploratory Data Analysis]
-    D --> E[Wait Time vs Acuity Correlation Analysis]
-    E --> F[Resource Utilization & Peak Hour Heatmaps]
-    F --> G[Operational Insights & Resource Allocation Recommendations]
+## Executive Summary & Problem Statement
+
+Modern healthcare institutions generate massive inpatient and clinical workflow registries. Efficient healthcare delivery requires balancing resource utilization, bed availability, clinical triage prioritization, and diagnostic testing turnaround times. Fragmented analytics lead to operational bottlenecks and increased patient length of stay.
+
+The **Clinical Data Analytics Suite** delivers an integrated clinical informatics platform. Designed for hospital administration and clinical epidemiology researchers, it analyzes emergency room wait-time distributions, inpatient diagnostic pathways, and patient flow dynamics.
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/sohailahmed-bsrh/myportfolio/main/assets/images/thumbnail/hospital-emergency-room.jpeg" width="650" alt="Clinical Data Analytics Suite"/>
+  <p><em>Clinical data intelligence pipeline for healthcare operations, patient flow, and triage optimization.</em></p>
+</div>
+
+---
+
+## Real-World Industry Applications
+
+- **Hospital Capacity Planning**: Models daily inpatient admission surges to maintain safe bed occupancy ratios.
+- **Clinical Triage Efficiency**: Evaluates emergency room wait times against Emergency Severity Index (ESI) standards.
+- **Diagnostic Resource Allocation**: Pinpoints radiology, ultrasound, and blood lab bottlenecks prolonging patient stay.
+- **Healthcare Quality Auditing**: Delivers standardized healthcare operational indicators for hospital accreditation boards.
+
+---
+
+## Technical Architecture & Engineering Walkthrough
+
+```
+                     [Clinical Admission & Inpatient Registry]
+                                        │
+                                        ▼
+                    [Data Sanitization & Operational Intervals]
+                 (Arrival, Triage, Clinical Consult, Discharge)
+                                        │
+         ┌──────────────────────────────┼──────────────────────────────┐
+         ▼                              ▼                              ▼
+[Triage Severity Analysis]    [Length of Stay (LOS) Models]   [Clinical Resource Queues]
+(Acuity Tiers 1-5)            (Multivariate Regression)       (Diagnostic Delays)
+         │                              │                              │
+         └──────────────────────────────┼──────────────────────────────┘
+                                        │
+                                        ▼
+                  [Interactive Healthcare Analytics Dashboards]
 ```
 
-## Core Features
-- **Patient Flow Analysis**: Quantitative tracking of patient journey stages from triage intake to clinical consultation.
-- **Triage Acuity Stratification**: Evaluation of emergency severity levels against standardized waiting thresholds.
-- **Temporal Volume Decomposition**: Hourly, daily, and seasonal heatmaps isolating clinical surge intervals.
-- **Statistical Significance Testing**: Hypothesis testing evaluating wait duration differentials across clinical departments.
+### Step 1: Clinical Registry Ingestion & Cleaning
+Parses clinical encounter archives (`notebooks/ER.ipynb`, `archive/ER Wait Time Dataset.csv`), resolving conflicting timestamps and validating medical code entries.
 
-## Repository Structure
-```
-clinical-data-analytics-suite/
-|-- archive/
-|   |-- ER Wait Time Data Overview.txt
-|   +-- ER Wait Time Dataset.csv
-|-- notebooks/
-|   +-- ER.ipynb
-|-- requirements.txt
-+-- README.md
-```
+### Step 2: Time-to-Treatment Interval Extraction
+Calculates operational healthcare metrics: triage wait times, door-to-doctor times, diagnostic order-to-result intervals, and total encounter length.
 
-## Technology Stack
-| Layer | Technologies |
-| :--- | :--- |
-| Core Language | Python 3.10+ |
-| Data Processing | Pandas, NumPy |
-| Visualization | Matplotlib, Seaborn, Plotly |
-| Statistical Computing | SciPy, Statsmodels |
-| Notebook Environment | JupyterLab |
+### Step 3: Triage Acuity Stratification
+Cross-tabulates patient vital signs and primary complaints against clinical triage scores (ESI 1 through 5) to isolate high-risk delays.
 
-## Installation & Execution
+### Step 4: Inpatient Flow Modeling
+Models patient movement through clinical wards, tracking bed turnover rates and ICU step-down transition bottlenecks.
+
+### Step 5: Clinical Reporting
+Produces executive healthcare summaries featuring distribution histograms, correlation matrices, and operational KPI benchmarks.
+
+---
+
+## Technology Stack & Implementation Specifications
+
+| Component | Technology | Version | Architectural Function |
+| :--- | :--- | :--- | :--- |
+| **Data Engine** | Pandas / Python | 2.x | Clinical tabular aggregation and datetime interval computation |
+| **Statistical Computation** | NumPy / SciPy | Latest | Operational variance estimation and hypothesis testing |
+| **Visualization** | Seaborn / Matplotlib | 3.8+ | Clinical distribution charts, survival plots, heatmaps |
+| **Environment** | Jupyter Notebook | Latest | Reproducible clinical data research and visualization |
+
+---
+
+## Installation & Execution Guide
+
 ```bash
-# Clone the repository
 git clone https://github.com/sohailahmed-bsrh/clinical-data-analytics-suite.git
 cd clinical-data-analytics-suite
-
-# Install dependencies
+python -m venv venv
+# Windows: venv\Scriptsctivate | Unix: source venv/bin/activate
 pip install -r requirements.txt
-
-# Launch exploratory analysis notebook
 jupyter notebook notebooks/ER.ipynb
 ```
 
@@ -59,20 +93,21 @@ jupyter notebook notebooks/ER.ipynb
 
 ## Author & Contact Information
 
-<table width="100%" align="center">
+<table width="100%">
   <tr>
-    <td align="center" style="padding: 20px;">
+    <td width="150" align="center" valign="middle">
+      <img src="https://avatars.githubusercontent.com/u/231165170?v=4" width="120" style="border-radius: 50%;" alt="Sohail Ahmed"/>
+    </td>
+    <td>
       <h3>Sohail Ahmed</h3>
-      <p><strong>Full-Stack Artificial Intelligence & Computer Vision Engineer</strong></p>
+      <p><strong>Senior Software Engineer & AI Systems Architect</strong></p>
+      <p>Specializing in Full-Stack AI Application Development, Computer Vision, Deep Learning Pipelines, and Scalable Automation Architectures.</p>
       <p>
-        <a href="https://sohail.devsil.com"><img src="https://img.shields.io/badge/Live_Portfolio-sohail.devsil.com-0052FF?style=for-the-badge&logo=google-chrome&logoColor=white" alt="Portfolio"/></a>
-        <a href="https://github.com/sohailahmed-bsrh"><img src="https://img.shields.io/badge/GitHub-Profile-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/></a>
-        <a href="https://linkedin.com/in/sohail-ahmed-dev"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
-        <a href="mailto:sohail.bsrh@gmail.com"><img src="https://img.shields.io/badge/Email-Contact_Me-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Email"/></a>
+        <a href="https://sohail.devsil.com"><strong>Portfolio Website</strong></a> | 
+        <a href="https://github.com/sohailahmed-bsrh"><strong>GitHub Profile</strong></a> | 
+        <a href="https://www.linkedin.com/in/sohail-ahmed-546314316/"><strong>LinkedIn</strong></a> | 
+        <a href="mailto:se906403@gmail.com"><strong>Email Contact</strong></a>
       </p>
-      <p><em>Available for technical roles in Artificial Intelligence, Computer Vision, and Full-Stack Engineering.</em></p>
-      <hr style="border: 0; height: 1px; background: #30363d; margin: 15px 0;">
-      <small>Distributed under the MIT License.</small>
     </td>
   </tr>
 </table>
