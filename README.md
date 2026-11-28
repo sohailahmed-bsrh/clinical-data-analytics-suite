@@ -1,115 +1,69 @@
-# Clinical Data Analytics Suite - Healthcare Inpatient Operations
+# 🫀 Clinical Data Analytics Suite & Cardiovascular Diagnostic Engine
 
-<p align="center">
-  <a href="https://sohail.devsil.com"><strong>Portfolio</strong></a> | 
-  <a href="https://github.com/sohailahmed-bsrh"><strong>GitHub Profile</strong></a> | 
-  <a href="https://github.com/sohailahmed-bsrh/clinical-data-analytics-suite"><strong>Source Repository</strong></a>
-</p>
+A clinical decision support and epidemiological risk assessment web application built with Python and Streamlit. This project analyzes clinical trial records from the UCI Cleveland Clinic Heart Disease benchmark to profile hemodynamic biomarkers, evaluate electrocardiogram markers, and provide a machine learning cardiovascular screening engine.
 
----
-
-## Executive Summary & Problem Statement
-
-Modern healthcare institutions generate massive inpatient and clinical workflow registries. Efficient healthcare delivery requires balancing resource utilization, bed availability, clinical triage prioritization, and diagnostic testing turnaround times. Fragmented analytics lead to operational bottlenecks and increased patient length of stay.
-
-The **Clinical Data Analytics Suite** delivers an integrated clinical informatics platform. Designed for hospital administration and clinical epidemiology researchers, it analyzes emergency room wait-time distributions, inpatient diagnostic pathways, and patient flow dynamics.
-
-<div align="center">
-  <img src="https://raw.githubusercontent.com/sohailahmed-bsrh/myportfolio/main/assets/images/thumbnail/hospital-emergency-room.jpeg" width="650" alt="Clinical Data Analytics Suite"/>
-  <p><em>Clinical data intelligence pipeline for healthcare operations, patient flow, and triage optimization.</em></p>
-</div>
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://share.streamlit.io/)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
-## Real-World Industry Applications
+## 🌟 Key Features
 
-- **Hospital Capacity Planning**: Models daily inpatient admission surges to maintain safe bed occupancy ratios.
-- **Clinical Triage Efficiency**: Evaluates emergency room wait times against Emergency Severity Index (ESI) standards.
-- **Diagnostic Resource Allocation**: Pinpoints radiology, ultrasound, and blood lab bottlenecks prolonging patient stay.
-- **Healthcare Quality Auditing**: Delivers standardized healthcare operational indicators for hospital accreditation boards.
-
----
-
-## Technical Architecture & Engineering Walkthrough
-
-```
-                     [Clinical Admission & Inpatient Registry]
-                                        │
-                                        ▼
-                    [Data Sanitization & Operational Intervals]
-                 (Arrival, Triage, Clinical Consult, Discharge)
-                                        │
-         ┌──────────────────────────────┼──────────────────────────────┐
-         ▼                              ▼                              ▼
-[Triage Severity Analysis]    [Length of Stay (LOS) Models]   [Clinical Resource Queues]
-(Acuity Tiers 1-5)            (Multivariate Regression)       (Diagnostic Delays)
-         │                              │                              │
-         └──────────────────────────────┼──────────────────────────────┘
-                                        │
-                                        ▼
-                  [Interactive Healthcare Analytics Dashboards]
-```
-
-### Step 1: Clinical Registry Ingestion & Cleaning
-Parses clinical encounter archives (`notebooks/ER.ipynb`, `archive/ER Wait Time Dataset.csv`), resolving conflicting timestamps and validating medical code entries.
-
-### Step 2: Time-to-Treatment Interval Extraction
-Calculates operational healthcare metrics: triage wait times, door-to-doctor times, diagnostic order-to-result intervals, and total encounter length.
-
-### Step 3: Triage Acuity Stratification
-Cross-tabulates patient vital signs and primary complaints against clinical triage scores (ESI 1 through 5) to isolate high-risk delays.
-
-### Step 4: Inpatient Flow Modeling
-Models patient movement through clinical wards, tracking bed turnover rates and ICU step-down transition bottlenecks.
-
-### Step 5: Clinical Reporting
-Produces executive healthcare summaries featuring distribution histograms, correlation matrices, and operational KPI benchmarks.
+- **Clinical Epidemiological Dashboard:** Screened patient cohort metrics, prevalence tracking, and symptom presentation breakdowns.
+- **Biomarker & Hemodynamic Matrix:** Cross-analysis of resting blood pressure, serum cholesterol, exercise-induced angina, and ST depression (`oldpeak`).
+- **Live Cardiovascular Risk Screener:** Clinical input calculator generating diagnostic risk probability gauges and evidence-based clinical next steps.
+- **Model Evaluation & Diagnostics:** Random Forest Classifier performance with ROC-AUC validation, confusion matrix, and biomarker importance hierarchy.
 
 ---
 
-## Technology Stack & Implementation Specifications
+## 📊 Analytical Methodology
 
-| Component | Technology | Version | Architectural Function |
-| :--- | :--- | :--- | :--- |
-| **Data Engine** | Pandas / Python | 2.x | Clinical tabular aggregation and datetime interval computation |
-| **Statistical Computation** | NumPy / SciPy | Latest | Operational variance estimation and hypothesis testing |
-| **Visualization** | Seaborn / Matplotlib | 3.8+ | Clinical distribution charts, survival plots, heatmaps |
-| **Environment** | Jupyter Notebook | Latest | Reproducible clinical data research and visualization |
+1. **Clinical Ingestion:** Ingested multi-center clinical patient trial data including resting blood pressure, serum cholesterol, electrocardiogram markers, and exercise stress testing outcomes.
+2. **Key Insight:** Exercise-induced ST depression (`oldpeak`) and asymptomatic chest pain presentation represent the strongest diagnostic predictors of significant coronary artery disease.
 
 ---
 
-## Installation & Execution Guide
+## 💻 Local Setup & Execution
 
-```bash
-git clone https://github.com/sohailahmed-bsrh/clinical-data-analytics-suite.git
-cd clinical-data-analytics-suite
-python -m venv venv
-# Windows: venv\Scriptsctivate | Unix: source venv/bin/activate
-pip install -r requirements.txt
-jupyter notebook notebooks/ER.ipynb
-```
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/sohailahmed-bsrh/clinical-data-analytics-suite.git
+   cd clinical-data-analytics-suite
+   ```
+
+2. **Create a virtual environment:**
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. **Install dependencies:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Launch the Streamlit app:**
+   ```bash
+   streamlit run app.py
+   ```
 
 ---
 
-## Author & Contact Information
+## 🚀 Deployment on Streamlit Community Cloud
 
-<table width="100%">
-  <tr>
-    <td width="150" align="center" valign="middle">
-      <img src="https://avatars.githubusercontent.com/u/231165170?v=4" width="120" style="border-radius: 50%;" alt="Sohail Ahmed"/>
-    </td>
-    <td>
-      <h3>Sohail Ahmed</h3>
-      <p><strong>Senior Software Engineer & AI Systems Architect</strong></p>
-      <p>Specializing in Full-Stack AI Application Development, Computer Vision, Deep Learning Pipelines, and Scalable Automation Architectures.</p>
-      <p>
-        <a href="https://sohail.devsil.com"><strong>Portfolio Website</strong></a> | 
-        <a href="https://github.com/sohailahmed-bsrh"><strong>GitHub Profile</strong></a> | 
-        <a href="https://www.linkedin.com/in/sohail-ahmed-devsil/"><strong>LinkedIn</strong></a> | 
-        <a href="https://www.kaggle.com/sohail2411126"><strong>Kaggle</strong></a> | 
-        <a href="https://x.com/ahmed241126"><strong>Twitter/X</strong></a> | 
-        <a href="mailto:se906403@gmail.com"><strong>Email Contact</strong></a>
-      </p>
-    </td>
-  </tr>
-</table>
+1. Fork or push this repository to your GitHub account (`https://github.com/sohailahmed-bsrh/clinical-data-analytics-suite`).
+2. Visit [share.streamlit.io](https://share.streamlit.io/) and log in with your GitHub account.
+3. Click **New app**.
+4. Select repository: `sohailahmed-bsrh/clinical-data-analytics-suite`
+5. Branch: `main`
+6. Main file path: `app.py`
+7. Click **Deploy!**
+
+---
+
+## 👤 Author
+
+**Sohail Ahmed**
+- **GitHub:** [@sohailahmed-bsrh](https://github.com/sohailahmed-bsrh)
+- **Portfolio:** [https://sohail.devsil.com](https://sohail.devsil.com)
